@@ -1,20 +1,32 @@
-from tkinter import *
-root=Tk()
-def send():
-    send="you-"+e.get()
-    txt.insert(END, "\n" + send)
-    if (e.get() == "hello"):
-        txt.insert(END, "\n" + "bot-> Hi,how are you?")
-    elif (e.get() == "I am good"):
-        txt.insert(END, "\n" + "bot-> nice to hear")
-    else:
-        txt.insert(END, "\n" + "bot-> sorry,I din't get it")
 
-txt=Text(root)
-txt.grid(row=0,column=0,columnspan=2)
-e=Entry(root,width=100)
-send=Button(root,text="Send",command=send).grid(row=1,column=1)
-e.grid(row=1,column=0)
-root.title("Chatbot")
-root.mainloop()
+from flask import Flask, render_template, request
+from chatterbot import ChatBot
+from chatterbot.trainers import ChatterBotCorpusTrainer
+from chatterbot.trainers import ListTrainer
+
+app = Flask(__name__)
+
+with open('file.txt','r') as file:
+    conversation = file.read()
+
+bot = ChatBot("Ajeet's Resume ChatBot")
+trainer = ListTrainer(bot)
+trainer.train(conversation)
+
+@app.route("/")
+def home():
+	return render_template("home.html")
+
+@app.route("/get")
+def get_bot_response():
+	userText = request.args.get('msg')
+	return str(bot.get_response(userText))
+if __name__ == "__main__":
+	app.run()
+
+
+
+
+
+
 
