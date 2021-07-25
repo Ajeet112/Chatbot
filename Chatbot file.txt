@@ -1,0 +1,15 @@
+    "Hello",
+    "Hi there!",
+    "Hi",
+    "Hi!",
+    "How are you doing?",
+    "I'm doing great.",
+    "That's good to hear",
+    "Thank you.",
+    "You're welcome.",
+    'What is your name?', 'My name is Resume ChatBot',
+    'Who created you?', 'Ajeet kumar'
+    "Tell me about yourself",
+    "My name is Ajeet Kumar. I am MBA student at Chandigarh Universitty",
+   
+    
