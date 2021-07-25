@@ -1,5 +1,2 @@
-# Project : CHATBOT
-## AIM
-Create a chatbot using Tkinter
-## Description 
-- Point 1
+# Project : Conversational AI Chatbot application(Tkinter) using Python
+
